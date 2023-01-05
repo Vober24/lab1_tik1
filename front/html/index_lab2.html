@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="../css/style_lab2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Cuprum:wght@600&family=Fira+Sans+Condensed:wght@100&family=Montserrat:wght@100&family=Russo+One&family=Yanone+Kaffeesatz:wght@700&display=swap"
+          rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+<header class="header">
+    <div class="header-wrapper">
+        <nav class="nav-bar secondary-text">
+            <div class="nav-bar-wrapper">
+                <div class="nav-logo-wrapper">
+                    <img src="../images/logo.png" alt="Тіпа калькулятор" class="nav-logo">
+                    <p class="logo-text">Побудова амплітудно частотного спектру імпульсного сигналу</p>
+                </div>
+            </div>
+        </nav>
+        <div class="btn-wrapper">
+            <a class="border-button" id="btn">ОБРАХУВАТИ</a>
+        </div>
+    </div>
+</header>
+<section class="section-outer">
+    <div class="section-inner">
+        <div class="form">
+            <div class="form-inner-wrapper">
+                <div class="input-box">
+                    <label class="form-label" for="T">T: </label>
+                    <input value="8" type="number" id="T" class="form-input" placeholder="Введіть T:"
+                           required="required">
+                </div>
+                <div class="input-box">
+                    <label class="form-label" for="h">h: </label>
+                    <input value="1" type="number" id="h" class="form-input" placeholder="Введіть h:"
+                           required="required">
+                </div>
+                <div class="input-box">
+                    <label class="form-label" for="t1">t1: </label>
+                    <input value="4" type="number" id="t1" class="form-input" placeholder="Введіть t1:"
+                           required="required">
+                </div>
+                <div class="input-box">
+                    <label class="form-label" for="t2">t2: </label>
+                    <input value="5" type="number" id="t2" class="form-input" placeholder="Введіть t2"
+                           required="required">
+                </div>
+                <div class="input-box">
+                    <label class="form-label" for="t3">t2: </label>
+                    <input value="7" type="number" id="t3" class="form-input" placeholder="Введіть t3"
+                           required="required">
+                </div>
+            </div>
+        </div>
+        <div class="instruction-wrapper">
+            <div class="info">
+                <input id="info__body_w0" class="info__switch" type="checkbox">
+                <label for="info__body_w0" class="formula-text, info__headline">Знаходимо \({w}_{0}\) за формулою:
+                    \({w}_{0} = \frac{2𝝅}{T}\)</label>
+                <div class="info__body">
+                    <p class="formula" id="formula_w0">\({w}_{0} = \frac{2𝝅}{T}\)</p>
+                </div>
+            </div>
+            <div class="info">
+                <input id="info__body_1" class="info__switch" type="checkbox">
+                <label for="info__body_1" class="formula-text, info__headline">Знаходимо амплітуди спектрів \({A}_{k}\)
+                    \({B}_{k}\) \({C}_{k}\) за формулою \({X}_{k} = 2*h*
+                    \frac{τ*sin(k*{w}_{0}*\frac{τ}{2})}{T*(k*{w}_{0}*\frac{τ}{2})}\), \({A}_{0}\), \({B}_{0}\),
+                    \({C}_{0}\)
+                    – за формулою
+                    \({A}_{0} = h*\frac{τ}{T}\):</label>
+                <div class="info__body">
+                    <div class="k0-fromula-wrapper">
+                        <div class="info">
+                            <input id="info__body_a0" class="info__switch" type="checkbox">
+                            <label for="info__body_a0" class="formula-text, info__headline">Знаходимо \({A}_{0}\) за
+                                формулою:
+                                \({A}_{0} = h*\frac{τ1}{T}\)</label>
+                            <div class="info__body">
+                                <p class="formula" id="formula_a0">\({A}_{0} = h*\frac{τ}{T}\)</p>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <input id="info__body_b0" class="info__switch" type="checkbox">
+                            <label for="info__body_b0" class="formula-text, info__headline">Знаходимо \({B}_{0}\) за
+                                формулою:
+                                \({B}_{0} = h*\frac{τ2}{T}\)</label>
+                            <div class="info__body">
+                                <p class="formula" id="formula_b0">\({B}_{0} = h*\frac{τ}{T}\)</p>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <input id="info__body_c0" class="info__switch" type="checkbox">
+                            <label for="info__body_c0" class="formula-text, info__headline">Знаходимо \({C}_{0}\) за
+                                формулою:
+                                \({B}_{0} = h*\frac{τ2}{T}\)</label>
+                            <div class="info__body">
+                                <p class="formula" id="formula_c0">\({C}_{0} = h*\frac{τ3}{T}\)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="k-num-formula-wrapper">
+                        <div class="info">
+                            <input id="info__body_ak" class="info__switch" type="checkbox">
+                            <label for="info__body_ak" class="formula-text, info__headline">Знаходимо амплітуду спектру
+                                \({A}_{k}\) за формулою \({A}_{k} = 2*h*
+                                \frac{τ1*sin(k*{w}_{0}*\frac{τ1}{2})}{T*(k*{w}_{0}*\frac{τ1}{2})}\)
+                            </label>
+                            <div class="info__body">
+                                <div class="formulas_ak">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <input id="info__body_bk" class="info__switch" type="checkbox">
+                            <label for="info__body_bk" class="formula-text, info__headline">Знаходимо амплітуду спектру
+                                \({B}_{k}\) за формулою \({B}_{k} = 2*h*
+                                \frac{τ2*sin(k*{w}_{0}*\frac{τ2}{2})}{T*(k*{w}_{0}*\frac{τ2}{2})}\)
+                            </label>
+                            <div class="info__body">
+                                <div class="formulas_bk">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <input id="info__body_ck" class="info__switch" type="checkbox">
+                            <label for="info__body_ck" class="formula-text, info__headline">Знаходимо амплітуду спектру
+                                \({C}_{k}\) за формулою \({C}_{k} = 2*h*
+                                \frac{τ3*sin(k*{w}_{0}*\frac{τ3}{2})}{T*(k*{w}_{0}*\frac{τ3}{2})}\)
+                            </label>
+                            <div class="info__body">
+                                <div class="formulas_ck">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <input id="info__body_akc" class="info__switch" type="checkbox">
+                <label for="info__body_akc" class="formula-text, info__headline">Знаходимо середнє значення амплітуд
+                    гармонік для трьох випадків за формулою \({A}_{kc} = \frac{{A}_{k} + {B}_{k} + {C}_{k}}{3}\) і
+                    модуль цих амплітуд \(|{A}_{kc}|\) відповідно:
+                </label>
+                <div class="info__body ">
+                    <div class="slider-diagram-wrapper">
+                        <div class="formulas_akc">
+
+                        </div>
+                        <div class="diagram_sin">
+                            <canvas id="myChart_sin"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="main-wrapper">
+            <div class="table-wrapper">
+                <table class="first-table">
+                </table>
+            </div>
+            <div class="diagram-btn-wrapper">
+                <div class="diagram">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <h3 class="footer-text">Produced by students 1SP-20B (Stepanchuk, Humeniuk, Potashna) Всі права захищено ©</h3>
+</footer>
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+    };
+</script>
+
+<script src="../js/script_lab2.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

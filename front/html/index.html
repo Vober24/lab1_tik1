@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Сalculator</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Cuprum:wght@600&family=Fira+Sans+Condensed:wght@100&family=Montserrat:wght@100&family=Russo+One&family=Yanone+Kaffeesatz:wght@700&display=swap"
+          rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+
+<header class="header">
+    <nav class="nav-bar secondary-text">
+        <div class="nav-bar-wrapper">
+            <div class="nav-logo-wrapper">
+                <img src="../images/logo.png" alt="Тіпа калькулятор" class="nav-logo">
+                <p class="logo-text">Побудова амплітудно частотного спектру імпульсного сигналу</p>
+            </div>
+        </div>
+    </nav>
+</header>
+<section class="section-outer">
+    <div class="section-inner">
+        <div class="inputs-wrapper">
+            <p class="instruction-info-text"> Залежність амплітуди к-ої гармоніки Ак від колової частоти називається
+                спектром
+                амплітуд. Спектр амплітуд дозволяє наглядно проводити аналіз сигналів з точки зору їх
+                узгодження з параметрами полоси пропускання лінійних тактів інформаційних систем.
+                Найбільш проста процедура побудови спектрів амплітуд періодичної імпульсної
+                послідовності, що має період Т, ширину імпульсів t та амплітуду імпульсу h.</p>
+            <div class="form">
+                <div class="form-inner-wrapper">
+                    <div class="input-box">
+
+                        <label class="form-label" for="T">T: </label>
+                        <input type="number" id="T" class="form-input" placeholder="Введіть T" required="required">
+                    </div>
+                    <div class="input-box">
+                        <label class="form-label" for="ti">t: </label>
+                        <input type="number" id="ti" class="form-input" placeholder="Введіть t" required="required">
+                    </div>
+                    <div class="input-box">
+                        <label class="form-label" for="h">h: </label>
+                        <input type="number" id="h" class="form-input" placeholder="Введіть h" required="required">
+                    </div>
+                    <div class="btn-wrapper">
+                        <div class="btn-wrapper">
+                            <a class="border-button" id="btn">ОБРАХУВАТИ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="instruction-wrapper">
+            <!--            <p class="formula-text">Знаходимо \({w}_{0}\) за формулою: \({w}_{0} = \frac{2𝝅}{T}\)</p>-->
+            <!--            <p class="formula" id="formula_w0">\({w}_{0} = \frac{2𝝅}{T}\)</p>-->
+            <div class="info">
+                <input id="info__body_1" class="info__switch" type="checkbox">
+                <label for="info__body_1" class="formula-text, info__headline">Знаходимо \({w}_{0}\) за формулою:
+                    \({w}_{0} = \frac{2𝝅}{T}\)</label>
+                <div class="info__body">
+                    <p class="formula1" id="formula_w0">\({w}_{0} = \frac{2𝝅}{T}\)</p>
+                </div>
+            </div>
+            <!--            <p class="formula-text">Знаходимо \({A}_{0}\) за формулою: \({A}_{0} = h*\frac{τ}{T}\)</p>-->
+            <!--            <p class="formula" id="formula_a0">\({A}_{0} = h*\frac{τ}{T}\)</p>-->
+            <div class="info">
+                <input id="info__body_2" class="info__switch" type="checkbox">
+                <label for="info__body_2" class="formula-text, info__headline">Знаходимо \({A}_{0}\) за формулою:
+                    \({A}_{0} = h*\frac{τ}{T}\)</label>
+                <div class="info__body">
+                    <p class="formula" id="formula_a0">\({A}_{0} = h*\frac{τ}{T}\)</p>
+                </div>
+            </div>
+            <div class="formula-slider">
+                <!--                <p class="formula-text">Знаходимо амплітуди \({A}_{k}\) за формулою: \({A}_{k} = 2*h\frac{τ*sin(k*{w}_{0}*\frac{τ}{2})}{T*(k*{w}_{0}*\frac{τ}{2})}\)</p>-->
+                <div class="info">
+                    <input id="info__body_3" class="info__switch" type="checkbox">
+                    <label for="info__body_3" class="formula-text, info__headline">Знаходимо амплітуди \({A}_{k}\)
+                        за формулою: \({A}_{k} =
+                        2*h\frac{τ*sin(k*{w}_{0}*\frac{τ}{2})}{T*(k*{w}_{0}*\frac{τ}{2})}\)</label>
+                    <div class="info__body" >
+                        <div class="" id="formula_slider"></div>
+                        <div class="diagram_sin">
+                            <canvas id="myChart_sin" class="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--            <p class="formula-text">Знаходимо амплітуди \({A}_{k}\) за формулою: \({A}_{k} = 2*h\frac{τ*sin(k*{w}_{0}*\frac{τ}{2})}{T*(k*{w}_{0}*\frac{τ}{2})}\)</p>-->
+            <!--            <p class="formula" id="formula_ak">\({A}_{k} = 2*h\frac{τ*sin(k*{w}_{0}*\frac{τ}{2})}{T*(k*{w}_{0}*\frac{τ}{2})}\)</p>-->
+        </div>
+        <div class="main-wrapper">
+            <div class="table-wrapper">
+                <table class="first-table">
+                    <tr>
+                        <th>k</th>
+                        <th>Ak</th>
+                        <th>|Ak|</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="">
+                <div class="diagram">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<footer>
+    <h3 class="footer-text">Produced by students 1SP-20B (Stepanchuk, Humeniuk, Potashna) Всі права захищено ©</h3>
+</footer>
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+    };
+</script>
+
+<script src="../js/script.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</body>
+</html>
